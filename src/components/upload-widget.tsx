@@ -39,7 +39,7 @@ const UploadWidget = ({ value = null, onChange, disabled = false }) => {
                     if (!error && result.event === "success") {
                         const payload: UploadWidgetValue = {
                             url: result.info.secure_url,
-                            publicId: result.info.public_url,
+                            publicId: result.info.public_id,
                         };
                         setPreview(payload);
                         onChangeRef.current?.(payload);
