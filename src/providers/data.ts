@@ -6,7 +6,7 @@ const options: CreateDataProviderOptions = {
   getList: {
     getEndpoint: ({ resource }) => resource,
     mapResponse: async (response) => {
-      const payLoad: ListResponse = await response.json();
+      const payLoad: ListResponse = await response.clone().json();
 
       return payLoad.data ?? [];
     },
@@ -29,7 +29,7 @@ const options: CreateDataProviderOptions = {
       return params;
     },
     getTotalCount: async (response) => {
-      const payLoad: ListResponse = await response.json();
+      const payLoad: ListResponse = await response.clone().json();
       return payLoad.pagination?.total ?? payLoad.data?.length ?? 0;
     },
   },
